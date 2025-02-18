@@ -61,10 +61,12 @@ external/kotlinc, or external/python/cpython3.
 
 ## Configure
 
-To use this tool, a METADATA file must present at the root of the 
-repository. The full definition can be found
-[here](https://android.googlesource.com/platform/tools/external_updater/+/refs/heads/main/metadata.proto).
-Or see example [here](https://android.googlesource.com/platform/external/ImageMagick/+/refs/heads/main/METADATA)
+To use this tool, a METADATA file must present at the root of the
+repository. The full definition can be found in
+[metadata.proto](https://android.googlesource.com/platform/tools/external_updater/+/refs/heads/main/metadata.proto).
+Or
+[external/toybox/METADATA](https://android.googlesource.com/platform/external/toybox/+/refs/heads/main/METADATA)
+is a concrete example.
 
 The most important part in the file is a list of urls.
 `external_updater` will go through all urls and uses the first
@@ -133,7 +135,7 @@ If there are multiple archives in one GitHub release, the one most
 
 After upgrade, files not present in the new tarball will be removed. But we
 explicitly keep files famous in Android tree.
-See [here](https://android.googlesource.com/platform/tools/external_updater/+/refs/heads/main/update_package.sh).
+See [update_package.sh](https://android.googlesource.com/platform/tools/external_updater/+/refs/heads/main/update_package.sh).
 
 If more files need to be reserved, a post_update.sh can be created to copy
 these files over.
@@ -142,12 +144,12 @@ See [example](https://android.googlesource.com/platform/external/kotlinc/+/refs/
 #### Local patches
 
 Local patches can be kept as patches/*.diff. They will be applied after
-upgrade. [example](https://cs.android.com/android/platform/superproject/+/main:external/jsmn/patches/header.diff)
+upgrade. [example](https://cs.android.com/android/platform/superproject/main/+/main:external/jsmn/patches/header.diff)
 
 ## Email notification
 
-There is some support to automatically check updates for all external 
-libraries every hour, send email and change. Currently this is done by 
+There is some support to automatically check updates for all external
+libraries every hour, send email and change. Currently this is done by
 running the following script on a desktop machine.
 
 ```shell
